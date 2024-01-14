@@ -7,6 +7,9 @@ class CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
   end
 
+  def new
+    @customer = Customer.new
+  end
 
   def create
     @customer = Customer.new(customer_params)
@@ -17,4 +20,14 @@ class CustomersController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+
+  # we pass a single hash with all the data when we create a particular customer
+  # however, without this method, we would be exposed to a malicious actor modifying
+  # the payload and adding extra data at their will.
+
+  private
+    def customer_params
+      params.require(:customer).permit(:firstname, :lastname, :email)
+    end
 end

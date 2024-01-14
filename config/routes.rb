@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  
-  get "/customers", to: "customers#index"
-  get "/customers/new", to: "customers#create"
-  
-  get "/customers/:id", to: "customers#show"
 
+  #  Customers
+  resources :customers
 
   get "/payments", to: "customers#index"
 

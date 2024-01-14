@@ -2,10 +2,10 @@
 
 <ul>
   <% @customers.each do |customer| %>
-    <li>
-        <a href="/customers/<%= customer.id %>">
-        <%= customer.firstname %>
-      </a>
+     <li>
+      <%= link_to customer.firstname, customer %>
     </li>
   <% end %>
 </ul>
+
+<%= link_to "New Customer", new_customer_path %>
