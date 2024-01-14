@@ -1,5 +1,11 @@
+<%= link_to "All Customers", customers_path %>
+
 <h1> individual customer</h1>
 
 <p><%= @customer.firstname %></p>
 <p><%= @customer.lastname %></p>
 <p><%= @customer.email %></p>
+
+<li><%= link_to "Edit", edit_customer_path(@customer) %></li>
+
+
